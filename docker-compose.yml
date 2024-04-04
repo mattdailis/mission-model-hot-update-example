@@ -18,7 +18,7 @@ services:
       POSTGRES_PASSWORD: aerie
       POSTGRES_PORT: 5432
       POSTGRES_USER: aerie
-    image: "ghcr.io/nasa-ammos/aerie-gateway:v2.4.0"
+    image: "ghcr.io/nasa-ammos/aerie-gateway:v2.7.0"
     ports: ["9000:9000"]
     restart: always
     volumes:
@@ -177,4 +177,10 @@ services:
 
 volumes:
   aerie_file_store:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./build/libs/
+
   postgres_data:
